@@ -1,0 +1,36 @@
+<header>
+    <nav class="navbar navbar-expand-md  navbar-dark  bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">GymApp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link active" routerLink="">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " routerLink="/appointment">Appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="#">Member</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="#">Coach</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/appointmenttype/list">Appointment Type</a>
+                    </li>
+
+                </ul>
+                <button routerLink="/appointmenttype/create" class="btn btn-outline-success my-2 my-sm-0" role="button"
+                    aria-pressed="true">CREATE APPOINTMENT</button>
+
+            </div>
+        </div>
+    </nav>
+</header>
