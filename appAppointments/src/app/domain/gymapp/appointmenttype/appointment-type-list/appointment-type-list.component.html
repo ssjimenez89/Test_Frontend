@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1>Appointment Type</h1>
+    </div>
+    <button routerLink="/appointmenttype/create" class="btn btn-success my-2 my-sm-"  role="button"
+    aria-pressed="true">Create</button>
+    <div class="panel-body">
+        <table class="table table-bordered ">
+            <thead class="thead-light">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of appointmentType | async">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.description}}</td>                    
+                    <td>
+                        <span class="edit btn btn-info" routerLink="/appointmenttype/edit/{{item.id}}">Edit</span>
+                        <span class="details btn btn-secondary" routerLink="/appointmenttype/details/{{item.id}}">Details</span>
+                        <span class="delete" (click)="deleteAppointmentType(item.id)" class="btn btn-danger">Delete</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div *ngIf="appointmentTypeData">
+    <div>
+        <label>Name: </label> {{appointmentTypeData.name}}
+    </div>
+    <div>
+        <label>Description: </label> {{appointmentTypeData.description}}
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" (click)="detailsAppointmentType()">Cerrar</button>
+    </div>
+
+    <hr />
+</div>
