@@ -1,6 +1,6 @@
 import { AppointmenttypeService } from './../appointmenttype.service';
 import { Observable } from 'rxjs';
-import { AppointmentType } from './../models/appointment.model';
+import { AppointmentType } from './../models/appointment.model'; 
 import { Component, OnInit } from '@angular/core';
 
 @Component({

@@ -1,31 +1,52 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h1>Appointment Type</h1>
-    </div>
-    <button routerLink="/appointmenttype/create" class="btn btn-success my-2 my-sm-"  role="button"
-    aria-pressed="true">Create</button>
-    <div class="panel-body">
-        <table class="table table-bordered ">
-            <thead class="thead-light">
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of appointmentType | async">
-                    <td>{{item.id}}</td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.description}}</td>                    
-                    <td>
-                        <span class="edit btn btn-info" routerLink="/appointmenttype/edit/{{item.id}}">Edit</span>
-                        <span class="details btn btn-secondary" routerLink="/appointmenttype/details/{{item.id}}">Details</span>
-                        <span class="delete" (click)="deleteAppointmentType(item.id)" class="btn btn-danger">Delete</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page" >List Appointment Type</li>
+    </ol>
+</nav>
+<div class="card ">
+    <div class="card-body">
+        <div class="panel panel-default">
+            <div class="card ">
+                <div class="card-header bg-dark text-white "> Appointment Type</div>
+                <div class="card-body">
+
+                    <button routerLink="/appointmenttype/create" class="btn btn-success my-2 my-sm- float-right"
+                        role="button" aria-pressed="true">Create</button>
+                    <div class="panel-body">
+                        <table class="table table-bordered ">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of appointmentType | async">
+                                    <td>{{item.id}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.description}}</td>
+                                    <td>
+                                        <div class="row justify-content-center">
+                                            <span class="edit btn btn-info" style="margin-right: 5px; margin-left: 7px;"
+                                                routerLink="/appointmenttype/edit/{{item.id}}">Edit</span>
+
+
+                                            <span class="details btn btn-secondary" style="margin-right: 5px;"
+                                                routerLink="/appointmenttype/details/{{item.id}}">Details</span>
+                                            <span class="delete" style="margin-right: 7px;"
+                                                (click)="deleteAppointmentType(item.id)"
+                                                class="btn btn-danger">Delete</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
