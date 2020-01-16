@@ -1,0 +1,53 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/trainingschedule/list">List Training Schedule</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Edit Training Schedule</li>
+    </ol>
+</nav>
+<div class="card ">
+    <div class="card-body">
+        <div class="card ">
+            <div class="card-header bg-dark text-white "> Edit Training Schedule</div>
+            <div class="card-body">
+                <div class="container custom-container">
+                    <div class="col-md-12">
+
+                        <div class="row">
+                            <div class="form-group col-md-6 mb-3">
+                                <label for="name"> Start Time </label>
+                                <input type="text" [(ngModel)]="trainingScheduleData.startTime" class="form-control"
+                                    placeholder="Name">
+                            </div>
+                            <div class="form-group col-md-6 mb-3">
+                                <label for="firstname"> End Time </label>
+                                <input type="text" [(ngModel)]="trainingScheduleData.endTime" class="form-control"
+                                    placeholder="First name">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6 mb-3">
+                                <label for="secondname"> Date </label>
+                                <input type="text" [(ngModel)]="trainingScheduleData.date" class="form-control"
+                                    placeholder="Second Name">
+                            </div>
+                            <div class="form-group col-md-6 mb-3">
+                                <label for="sex"> Coach </label>
+                                <select class="custom-select" required [(ngModel)]="trainingScheduleData.coach">
+                                    <option value="1"> F </option>
+                                    <option value="2"> M </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-success float-right" (click)="TrainingScheduleEditComponent()">Aceptar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
