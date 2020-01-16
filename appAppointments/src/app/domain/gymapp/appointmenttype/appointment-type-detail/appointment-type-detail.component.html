@@ -1,14 +1,25 @@
-<div *ngIf="appointmentTypeData">
-    <div>
-        <label>Name: </label> {{appointmentTypeData.name}}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/appointmenttype/list">List Appointment Type</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details Appointment Type</li>
+    </ol>
+</nav>
+<div class="card ">
+    <div class="card-body">
+        <div class="card ">
+            <div class="card-header bg-dark text-white "> Details Appointment Type</div>
+            <div class="card-body">
+                <div *ngIf="appointmentTypeData">
+                    <div>
+                        <label>Name: </label> {{appointmentTypeData.name}}
+                    </div>
+                    <div>
+                        <label>Description: </label> {{appointmentTypeData.description}}
+                    </div>
+                    <button class="btn btn-success float-right" (click)="detailsAppointmentType()">Cerrar</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <label>Description: </label> {{appointmentTypeData.description}}
-    </div>
-
-    <div class="form-group">
-        <button class="btn btn-success btn-lg btn-block" (click)="detailsAppointmentType()">Cerrar</button>
-    </div>
-
-    <hr />
 </div>

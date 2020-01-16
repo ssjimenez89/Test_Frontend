@@ -1,0 +1,60 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page" >List Coach</li>
+    </ol>
+</nav>
+<div class="card ">
+    <div class="card-body">
+        <div class="panel panel-default">
+            <div class="card ">
+                <div class="card-header bg-dark text-white "> Coach</div>
+                <div class="card-body">
+
+                    <button routerLink="/coach/create" class="btn btn-success my-2 my-sm- float-right"
+                        role="button" aria-pressed="true">Create</button>
+                    <div class="panel-body">
+                        <table class="table table-bordered ">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>First name</th>
+                                    <th>Second name</th>
+                                    <th>Sex</th>
+                                    <th>Age</th>
+                                    <th>Phone</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of coach | async">
+                                    <td>{{item.id}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.firstSurname}}</td>
+                                    <td>{{item.secondSurname}}</td>
+                                    <td>{{item.sex}}</td>
+                                    <td>{{item.age}}</td>
+                                    <td>{{item.phone}}</td>
+                                    <td>
+                                        <div class="row justify-content-center">
+                                            <span class="edit btn btn-info" style="margin-right: 5px; margin-left: 7px;"
+                                                routerLink="/coach/edit/{{item.id}}">Edit</span>
+
+
+                                            <span class="details btn btn-secondary" style="margin-right: 5px;"
+                                                routerLink="/coach/details/{{item.id}}">Details</span>
+                                            <span class="delete" style="margin-right: 7px;"
+                                                (click)="deleteCoach(item.id)"
+                                                class="btn btn-danger">Delete</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,7 +2,7 @@ import { AppointmentTypeListComponent } from './../appointment-type-list/appoint
 import { AppointmenttypeService } from './../appointmenttype.service';
 import { AppointmentType } from './../models/appointment.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core'; 
 
 @Component({
   selector: 'app-appointment-type-detail',

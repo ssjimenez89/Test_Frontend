@@ -1,0 +1,43 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/member/list">List Member</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details Member</li>
+    </ol>
+</nav>
+<div class="card ">
+    <div class="card-body">
+        <div class="card ">
+            <div class="card-header bg-dark text-white "> Details Member</div>
+            <div class="card-body">
+                <div *ngIf="memberData">
+
+                    <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label>Name: </label> {{memberData.name}}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>First name: </label> {{memberData.firstSurname}}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Second name: </label> {{memberData.secondSurname}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label>Sex: </label> {{memberData.sex}}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Age: </label> {{memberData.age}}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Phone: </label> {{memberData.phone}}
+                    </div>
+                </div>
+                    <button class="btn btn-success float-right" (click)="detailsMember()">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 

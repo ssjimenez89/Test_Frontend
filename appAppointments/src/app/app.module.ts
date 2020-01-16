@@ -16,6 +16,22 @@ import { AppointmentTypeDeleteComponent } from './domain/gymapp/appointmenttype/
 import { AppointmentTypeListComponent } from './domain/gymapp/appointmenttype/appointment-type-list/appointment-type-list.component';
 import { AppointmentTypeDetailComponent } from './domain/gymapp/appointmenttype/appointment-type-detail/appointment-type-detail.component';
 import { from } from 'rxjs';
+import { BreadcrumbComponent } from './base/layout/breadcrumb/breadcrumb/breadcrumb.component';
+import { CoachCreateComponent } from './domain/gymapp/coach/coach-create/coach-create.component';
+import { CoachEditComponent } from './domain/gymapp/coach/coach-edit/coach-edit.component';
+import { CoachDetailComponent } from './domain/gymapp/coach/coach-detail/coach-detail.component';
+import { CoachDeleteComponent } from './domain/gymapp/coach/coach-delete/coach-delete.component';
+import { CoachListComponent } from './domain/gymapp/coach/coach-list/coach-list.component';
+import { MemberCreateComponent } from './domain/gymapp/member/member-create/member-create.component';
+import { MemberEditComponent } from './domain/gymapp/member/member-edit/member-edit.component';
+import { MemberDetailComponent } from './domain/gymapp/member/member-detail/member-detail.component';
+import { MemberDeleteComponent } from './domain/gymapp/member/member-delete/member-delete.component';
+import { MemberListComponent } from './domain/gymapp/member/member-list/member-list.component';
+import { TrainingScheduleCreateComponent } from './domain/gymapp/trainingshedule/training-schedule-create/training-schedule-create.component';
+import { TrainingScheduleEditComponent } from './domain/gymapp/trainingshedule/training-schedule-edit/training-schedule-edit.component';
+import { TrainingScheduleDetailComponent } from './domain/gymapp/trainingshedule/training-schedule-detail/training-schedule-detail.component';
+import { TrainingScheduleDeleteComponent } from './domain/gymapp/trainingshedule/training-schedule-delete/training-schedule-delete.component';
+import { TrainingScheduleListComponent } from './domain/gymapp/trainingshedule/training-schedule-list/training-schedule-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +45,23 @@ import { from } from 'rxjs';
     AppointmentTypeEditComponent,
     AppointmentTypeDeleteComponent,
     AppointmentTypeListComponent,
-    AppointmentTypeDetailComponent
+    AppointmentTypeDetailComponent,
+    BreadcrumbComponent,
+    CoachCreateComponent,
+    CoachEditComponent,
+    CoachDetailComponent,
+    CoachDeleteComponent,
+    CoachListComponent,
+    MemberCreateComponent,
+    MemberEditComponent,
+    MemberDetailComponent,
+    MemberDeleteComponent,
+    MemberListComponent,
+    TrainingScheduleCreateComponent,
+    TrainingScheduleEditComponent,
+    TrainingScheduleDetailComponent,
+    TrainingScheduleDeleteComponent,
+    TrainingScheduleListComponent
 
   ],
   imports: [

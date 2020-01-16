@@ -1,19 +1,39 @@
-<div class="container custom-container">
-    <div class="col-md-12">
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/appointmenttype/list">List Appointment Type</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Edit Appointment Type</li>
+    </ol>
+</nav>
+<div class="card ">
+    <div class="card-body">
+        <div class="card ">
+            <div class="card-header bg-dark text-white "> Edit Appointment Typ</div>
+            <div class="card-body">
 
-        <h3 class="mb-3 text-center">Edit Appointment Type</h3>
+                <div class="container custom-container">
+                    <div class="col-md-12">
 
-        <div class="form-group">
-            <input type="text" [(ngModel)]="appointmentTypeData.name" class="form-control" placeholder="Name">
+                        <div class="form-group">
+                            <label for="name"> Name </label>
+                            <input type="text" [(ngModel)]="appointmentTypeData.name" class="form-control"
+                                placeholder="Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name"> Description </label>
+                            <textarea type="text" [(ngModel)]="appointmentTypeData.description" class="form-control"
+                                row="6" placeholder="Description">
+                    </textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-success float-right" (click)="editAppointmentType()">Aceptar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="form-group">
-            <input type="text" [(ngModel)]="appointmentTypeData.description" class="form-control" placeholder="Email">
-        </div>
-        
-        <div class="form-group">
-            <button class="btn btn-success btn-lg btn-block" (click)="editAppointmentType()">Update Employee</button>
-        </div>
-
     </div>
 </div>

@@ -1,0 +1,36 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/trainingschedule/list">List Training Schedule</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details Training Schedule</li>
+    </ol>
+</nav>
+<div class="card ">
+    <div class="card-body">
+        <div class="card ">
+            <div class="card-header bg-dark text-white "> Details Training Schedule</div>
+            <div class="card-body">
+                <div *ngIf="trainingScheduleData">
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>Start Time: </label> {{trainingScheduleData.startTime}}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>End Time: </label> {{trainingScheduleData.endTime}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>Date: </label> {{trainingScheduleData.date}}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>coach: </label> {{trainingScheduleData.coach}}
+                        </div>
+                    </div>
+                    <button class="btn btn-success float-right" (click)="detailsTrainingSchedule()">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
