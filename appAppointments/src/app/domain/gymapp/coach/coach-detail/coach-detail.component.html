@@ -1,0 +1,43 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/coach/list">List Coach</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details Coach</li>
+    </ol>
+</nav>
+<div class="card ">
+    <div class="card-body">
+        <div class="card ">
+            <div class="card-header bg-dark text-white "> Details Coach</div>
+            <div class="card-body">
+                <div *ngIf="coachData">
+
+                    <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label>Name: </label> {{coachData.name}}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>First name: </label> {{coachData.firstSurname}}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Second name: </label> {{coachData.secondSurname}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label>Sex: </label> {{coachData.sex}}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Age: </label> {{coachData.age}}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Phone: </label> {{coachData.phone}}
+                    </div>
+                </div>
+                    <button class="btn btn-success float-right" (click)="detailsCoach()">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
