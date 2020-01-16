@@ -1,0 +1,70 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">List Member</li>
+    </ol>
+</nav>
+<div class="card ">
+    <div class="card-body">
+        <div class="panel panel-default">
+            <div class="card ">
+                <div class="card-header bg-dark text-white "> Member</div>
+                <div class="card-body">
+
+                    <button routerLink="/member/create" class="btn btn-success my-2 my-sm- float-right" role="button"
+                        aria-pressed="true">Create</button>
+                    <div class="panel-body">
+                        <table class="table table-bordered ">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>First name</th>
+                                    <th>Second name</th>
+                                    <th>Sex</th>
+                                    <th>Age</th>
+                                    <th>Phone</th>
+                                    <th>Registration date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of member | async">
+                                    <td>{{item.id}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.firstSurname}}</td>
+                                    <td>{{item.secondSurname}}</td>
+                                    <td>{{item.sex}}</td>
+                                    <td>{{item.age}}</td>
+                                    <td>{{item.phone}}</td>
+                                    <td>{{item.registrationDate}}</td>
+                                    <td>
+                                        
+                                            <div class="row justify-content-center ">
+                                                <div class="form-group">
+                                                    <span class="edit btn btn-info"
+                                                        style="margin-right: 5px; margin-left: 7px;"
+                                                        routerLink="/member/edit/{{item.id}}">Edit</span>
+                                                </div>
+
+                                                <div class="form-grou">
+                                                    <span class="details btn btn-secondary" style="margin-right: 5px;"
+                                                        routerLink="/member/details/{{item.id}}">Details</span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <span class="delete" style="margin-right: 7px;"
+                                                        (click)="deleteMember(item.id)"
+                                                        class="btn btn-danger">Delete</span>
+                                                </div>
+                                            </div>
+                                        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

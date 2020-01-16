@@ -1,0 +1,61 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/member/list">List Member</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Create Member</li>
+    </ol>
+</nav>
+<div class="card ">
+    <div class="card-body">
+        <div class="card ">
+            <div class="card-header bg-dark text-white "> Create Member</div>
+            <div class="card-body">
+
+                <div [hidden]="submitted">
+                    <form (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="form-group col-md-4 mb-3">
+                                <label for="name"> Name </label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter name" required
+                                    [(ngModel)]="member.name" name="name">
+                            </div>
+                            <div class="form-group col-md-4 mb-3">
+                                <label for="firstname"> First name </label>
+                                <input type="text" class="form-control" id="firstname" placeholder="Enter first name"
+                                    required [(ngModel)]="member.firstSurname" name="firstname">
+                            </div>
+                            <div class="form-group col-md-4 mb-3">
+                                <label for="secondname"> Second name </label>
+                                <input type="text" class="form-control" id="secondname" placeholder="Enter second name"
+                                    required [(ngModel)]="member.secondSurname" name="secondname">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-4 mb-3">
+                                <label for="sex"> Sex </label>
+                                <select class="custom-select" id="sex" required [(ngModel)]="member.sex" name="sex">
+                                    <option value="1"> F </option>
+                                    <option value="2"> M </option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4 mb-3">
+                                <label for="age"> Age </label>
+                                <input type="number" class="form-control" id="age" placeholder="Enter age" required
+                                    [(ngModel)]="member.age" name="age">
+                            </div>
+                            <div class="form-group col-md-4 mb-3">
+                                <label for="phone"> Phone </label>
+                                <input type="number" class="form-control" id="phone" placeholder="Enter phone" required
+                                    [(ngModel)]="member.phone" name="phone">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success float-right">Aceptar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
