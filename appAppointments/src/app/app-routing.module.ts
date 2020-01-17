@@ -19,6 +19,10 @@ import { TrainingScheduleCreateComponent } from './domain/gymapp/trainingshedule
 import { TrainingScheduleEditComponent } from './domain/gymapp/trainingshedule/training-schedule-edit/training-schedule-edit.component';
 import { TrainingScheduleDetailComponent } from './domain/gymapp/trainingshedule/training-schedule-detail/training-schedule-detail.component';
 import { TrainingScheduleListComponent } from './domain/gymapp/trainingshedule/training-schedule-list/training-schedule-list.component';
+import { AppointmentCreateComponent } from './domain/gymapp/appointment/appointment-create/appointment-create.component';
+import { AppointmentDetailComponent } from './domain/gymapp/appointment/appointment-detail/appointment-detail.component';
+import { AppointmentEditComponent } from './domain/gymapp/appointment/appointment-edit/appointment-edit.component';
+import { AppointmentListComponent } from './domain/gymapp/appointment/appointment-list/appointment-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -48,6 +52,11 @@ const routes: Routes = [
       { path: 'trainingschedule/create', component: TrainingScheduleCreateComponent },
       { path: 'trainingschedule/details/:id', component: TrainingScheduleDetailComponent },
       { path: 'trainingschedule/edit/:id', component: TrainingScheduleEditComponent },
+
+      { path: 'appointment/list', component: AppointmentListComponent },
+      { path: 'appointment/create', component: AppointmentCreateComponent },
+      { path: 'appointment/details/:id', component: AppointmentDetailComponent },
+      { path: 'appointment/edit/:id', component: AppointmentEditComponent },
 
     ]
   },

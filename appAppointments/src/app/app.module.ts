@@ -32,6 +32,11 @@ import { TrainingScheduleEditComponent } from './domain/gymapp/trainingshedule/t
 import { TrainingScheduleDetailComponent } from './domain/gymapp/trainingshedule/training-schedule-detail/training-schedule-detail.component';
 import { TrainingScheduleDeleteComponent } from './domain/gymapp/trainingshedule/training-schedule-delete/training-schedule-delete.component';
 import { TrainingScheduleListComponent } from './domain/gymapp/trainingshedule/training-schedule-list/training-schedule-list.component';
+import { AppointmentCreateComponent } from './domain/gymapp/appointment/appointment-create/appointment-create.component';
+import { AppointmentDeleteComponent } from './domain/gymapp/appointment/appointment-delete/appointment-delete.component';
+import { AppointmentDetailComponent } from './domain/gymapp/appointment/appointment-detail/appointment-detail.component';
+import { AppointmentEditComponent } from './domain/gymapp/appointment/appointment-edit/appointment-edit.component';
+import { AppointmentListComponent } from './domain/gymapp/appointment/appointment-list/appointment-list.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +66,12 @@ import { TrainingScheduleListComponent } from './domain/gymapp/trainingshedule/t
     TrainingScheduleEditComponent,
     TrainingScheduleDetailComponent,
     TrainingScheduleDeleteComponent,
-    TrainingScheduleListComponent
+    TrainingScheduleListComponent,
+    AppointmentCreateComponent,
+    AppointmentDeleteComponent,
+    AppointmentDetailComponent,
+    AppointmentEditComponent,
+    AppointmentListComponent
 
   ],
   imports: [

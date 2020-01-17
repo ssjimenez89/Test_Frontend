@@ -36,7 +36,7 @@ export class TrainingScheduleCreateComponent implements OnInit {
   }
 
   save(){
-    this.trainingScheduleService.createTrainingSchedule(this.trainingSchedule)
+    this.trainingScheduleService.createTrainingSchedule ( this.trainingSchedule.coach.id, this.trainingSchedule)
       .subscribe(data => console.log(data), error => console.log(error));
     this.trainingSchedule = new TrainingSchedule();
     this.router.navigate(['trainingschedule/list']);

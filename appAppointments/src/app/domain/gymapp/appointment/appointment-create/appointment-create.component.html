@@ -1,0 +1,57 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/appointment/list">List Appointment</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Create Appointment</li>
+    </ol>
+</nav>
+<div class="card ">
+    <div class="card-body">
+        <div class="card ">
+            <div class="card-header bg-dark text-white "> Create Appointment </div>
+            <div class="card-body">
+
+                <div [hidden]="submitted">
+                    <form (ngSubmit)="onSubmit()">
+
+                        <div class="row">
+                            <div class="form-group col-md-6 mb-3">
+                                <label for="name"> Name </label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter name" required
+                                    [(ngModel)]="appointment.name" name="name">
+                            </div>
+
+                            <div class="form-group col-md-6 mb-3">
+                                <label for="sex"> Appointment type </label>
+                                <select class="custom-select" id="appointmentType" required
+                                    [(ngModel)]="appointment.appointmentType" name="appointmentType">
+                                    <option value="{{item.id}}" *ngFor="let item of appointmentType | async">
+                                        {{item.name}} </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6 mb-3">
+                                <label for="sex"> Training schedule </label>
+                                <select class="custom-select" id="trainingSchedule" required
+                                    [(ngModel)]="appointment.trainingSchedule" name="trainingSchedule">
+                                    <option value="{{item.id}}" *ngFor="let item of trainingSchedule | async">
+                                        {{item.date}} </option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6 mb-3">
+                                <label for="sex"> Member </label>
+                                <select class="custom-select" id="member" required [(ngModel)]="appointment.member"
+                                    name="member">
+                                    <option value="{{item.id}}" *ngFor="let item of member | async"> {{item.name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success float-right">Aceptar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

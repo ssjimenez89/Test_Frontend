@@ -2,6 +2,9 @@ import { TrainingscheduleService } from './../trainingschedule.service';
 import { TrainingSchedule } from './../model/trainingschedule.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CoachService } from './../../coach/coach.service';
+import { Observable } from 'rxjs';
+import { Coach } from './../../coach/model/coach.model';
 
 @Component({
   selector: 'app-training-schedule-edit',
@@ -12,11 +15,13 @@ export class TrainingScheduleEditComponent implements OnInit {
 
   id = this.actRoute.snapshot.params['id'];
   trainingScheduleData: any = {};
+  coach: Observable<Coach[]>;
 
   constructor(
     public trainingSchedulService: TrainingscheduleService,
     public actRoute: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    private coachService: CoachService
   ) {
   }
 
@@ -25,6 +30,11 @@ export class TrainingScheduleEditComponent implements OnInit {
       .subscribe((data: {}) => {
         this.trainingScheduleData = data;
       });
+    this.reloadData();
+  }
+
+  reloadData() {
+    this.coach = this.coachService.getCoachList();
   }
 
   TrainingScheduleEditComponent() {

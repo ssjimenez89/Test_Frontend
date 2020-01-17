@@ -19,8 +19,8 @@ export class TrainingscheduleService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createTrainingSchedule(trainingschedule: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, trainingschedule);
+  createTrainingSchedule(coachId: number,  trainingschedule: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}/${coachId}`, trainingschedule);
   }
 
   updateTrainingSchedule(id: number, value: any): Observable<Object> {
