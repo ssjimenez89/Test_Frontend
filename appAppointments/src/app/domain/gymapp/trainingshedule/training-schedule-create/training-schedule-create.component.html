@@ -34,9 +34,9 @@
 
                             <div class="form-group col-md-6 mb-3">
                                 <label for="sex"> Coach </label>
-                                <select class="custom-select" id="coach" required [(ngModel)]="trainingSchedule.coach"
-                                    name="coach">
-                                    <option value="{{item.id}}" *ngFor = "let item of coach | async"> {{item.name}} </option>                                   
+                                <select class="custom-select" id="sex" required [(ngModel)]="trainingSchedule.coach"
+                                    name="sex">
+                                    <option value="" *ngFor = "let item of coach | async"> {{item.name}} </option>                                   
                                 </select>
                             </div>
                         </div>
