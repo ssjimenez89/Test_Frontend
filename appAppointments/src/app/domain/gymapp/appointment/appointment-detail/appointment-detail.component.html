@@ -1,1 +1,35 @@
-<p>appointment-detail works!</p>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/appointment/list">List Appointment</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details Appointment</li>
+    </ol>
+</nav>
+<div class="card ">
+    <div class="card-body">
+        <div class="card ">
+            <div class="card-header bg-dark text-white "> Details Appointment </div>
+            <div class="card-body">
+                <div *ngIf="appointmentData">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>Name: </label> {{appointmentData.name}}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>Appointment type: </label> {{appointmentData.appointmentType.name}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>Training schedule: </label> {{appointmentData.trainingSchedule.date}}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>Member: </label> {{appointmentData.member.name}}
+                        </div>
+                    </div>
+                    <button class="btn btn-success float-right" (click)="detailsAppointment()">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

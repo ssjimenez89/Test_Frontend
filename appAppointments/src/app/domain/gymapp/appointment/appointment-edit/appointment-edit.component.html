@@ -1,1 +1,71 @@
-<p>appointment-edit works!</p>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/appointment/list">List Appointment</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Edit Appointment</li>
+    </ol>
+</nav>
+<div class="card ">
+    <div class="card-body">
+        <div class="card ">
+            <div class="card-header bg-dark text-white "> Edit Appointment</div>
+            <div class="card-body">
+
+                <div class="container custom-container">
+                    <div class="col-md-12">
+
+                        <div class="row">
+                            <div class="form-group col-md-6 mb-3">
+                                <label for="name"> Name </label>
+                                <input type="text" [(ngModel)]="appointmentData.name" class="form-control"
+                                    placeholder="Name">
+                            </div>
+
+                            <div class="form-group col-md-6 mb-3">
+                                <label for="appointmentType"> Appointment type </label>
+
+                                <select class="custom-select" id="appointmentType" required
+                                    [(ngModel)]="appointmentData.appointmentType" name="appointmentType">
+                                    <option [value]="item" *ngFor="let item of appointmentType | async">
+                                        {{item.name}} </option>
+                                </select>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6 mb-3">
+                                <label for="trainingSchedule"> Training schedule </label>
+
+                                <select class="custom-select" id="trainingSchedule" required
+                                    [(ngModel)]="appointmentData.trainingSchedule" name="trainingSchedule">
+                                    <option [value]="item" *ngFor="let item of trainingSchedule | async">
+                                        {{item.date}} </option>
+                                </select>
+
+                            </div>
+                            <div class="form-group col-md-6 mb-3">
+                                <label for="member"> Member </label>
+
+                                <select class="custom-select" id="member" required [(ngModel)]="appointmentData.member"
+                                    name="member">
+
+                                    <option [value]="item" *ngFor="let item of member | async"> {{item.name}}
+                                    </option>
+                                </select>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <button class="btn btn-success float-right" (click)="editAppointment()">Aceptar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

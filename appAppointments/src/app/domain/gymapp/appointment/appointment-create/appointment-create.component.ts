@@ -22,6 +22,9 @@ export class AppointmentCreateComponent implements OnInit {
   appointmentType: Observable<AppointmentType[]>;
   trainingSchedule: Observable<TrainingSchedule[]>;
   member: Observable<Member[]>;
+  appointmentTypeData: any = {};
+  trainingScheduleData: any = {};
+  memberData: any = {};
 
   constructor(
     private appointmentService: AppointmentService,
@@ -46,9 +49,9 @@ export class AppointmentCreateComponent implements OnInit {
   }
 
   save(){
-    this.appointmentService.createAppointment( this.appointment)
-      .subscribe(data => console.log(data), error => console.log(error));
-    this.appointment = new Appointment();
+    this.appointmentService.createAppointment( this.memberData.id, this.appointmentTypeData.id, this.trainingScheduleData.id, this.appointment)
+      .subscribe(data => console.log(data), error => console.log(error));      
+    this.appointment = new Appointment();    
     this.router.navigate(['appointment/list']);
   }
 

@@ -19,12 +19,12 @@ export class AppointmentService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createAppointment(appoint: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, appoint);
+  createAppointment(memberId: number, appointmentTypeId: number, trainingScheduleId: number, appoint: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}/${memberId}/${appointmentTypeId}/${trainingScheduleId}`, appoint);
   }
 
-  updateAppointment(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+  updateAppointment(memberId: number, appointmentTypeId: number, trainingScheduleId: number, id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${memberId}/${appointmentTypeId}/${trainingScheduleId}/${id}`, value);
   }
 
   deleteAppointment(id: number): Observable<any> {
