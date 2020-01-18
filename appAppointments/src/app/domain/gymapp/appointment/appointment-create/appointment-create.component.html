@@ -17,35 +17,44 @@
                         <div class="row">
                             <div class="form-group col-md-6 mb-3">
                                 <label for="name"> Name </label>
+
                                 <input type="text" class="form-control" id="name" placeholder="Enter name" required
                                     [(ngModel)]="appointment.name" name="name">
+
                             </div>
 
                             <div class="form-group col-md-6 mb-3">
-                                <label for="sex"> Appointment type </label>
+                                <label for="appointmentType"> Appointment type </label>
+
                                 <select class="custom-select" id="appointmentType" required
-                                    [(ngModel)]="appointment.appointmentType" name="appointmentType">
-                                    <option value="{{item.id}}" *ngFor="let item of appointmentType | async">
-                                        {{item.name}} </option>
+                                    [(ngModel)]="appointmentTypeData.id" name="appointmentType">
+                                    <option [value]="item.id" *ngFor="let item of appointmentType | async">
+                                       {{item.name}} </option>
                                 </select>
+
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6 mb-3">
-                                <label for="sex"> Training schedule </label>
+                                <label for="trainingSchedule"> Training schedule </label>
+
                                 <select class="custom-select" id="trainingSchedule" required
-                                    [(ngModel)]="appointment.trainingSchedule" name="trainingSchedule">
-                                    <option value="{{item.id}}" *ngFor="let item of trainingSchedule | async">
+                                    [(ngModel)]="trainingScheduleData.id" name="trainingSchedule">
+                                    <option [value]="item.id" *ngFor="let item of trainingSchedule | async">
                                         {{item.date}} </option>
                                 </select>
-                            </div>
+                                
+                            </div>                            
                             <div class="form-group col-md-6 mb-3">
-                                <label for="sex"> Member </label>
-                                <select class="custom-select" id="member" required [(ngModel)]="appointment.member"
-                                    name="member">
-                                    <option value="{{item.id}}" *ngFor="let item of member | async"> {{item.name}}
+                                <label for="member"> Member </label>
+
+                                <select class="custom-select" id="member" required [(ngModel)]="memberData.id"
+                                    name="member">                                   
+                                    
+                                    <option [value]="item.id" *ngFor="let item of member | async"> {{item.name}}
                                     </option>
                                 </select>
+
                             </div>
                         </div>
                         <button type="submit" class="btn btn-success float-right">Aceptar</button>
