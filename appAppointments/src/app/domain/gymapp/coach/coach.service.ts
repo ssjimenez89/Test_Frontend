@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class CoachService {
 
   private baseUrl = '/api/coach';
+  private baseUrlSex = '/api/sex';
 
   constructor(private http: HttpClient) { }
 
@@ -30,4 +31,9 @@ export class CoachService {
   deleteCoach(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
+
+  getSexList(): Observable<any> {
+    return this.http.get(`${this.baseUrlSex}`);
+  }
+
 }
