@@ -14,15 +14,19 @@
                 <div [hidden]="submitted">
                     <form (ngSubmit)="onSubmit()">
                         <div class="row">
+
                             <div class="form-group col-md-6 mb-3">
-                                <label for="name"> Start Time </label>
-                                <input type="text" class="form-control" id="name" placeholder="Enter name" required
-                                    [(ngModel)]="trainingSchedule.startTime" name="name">
+                                <label for="startTime"> Start Time </label>
+                                <select class="custom-select" id="startTime" required [(ngModel)]="trainingSchedule.startTime" name="startTime" >
+                                    <option [value]="item" *ngFor="let item of hourList | async"> {{item}} </option>                                    
+                                </select>
                             </div>
+                            
                             <div class="form-group col-md-6 mb-3">
-                                <label for="firstname"> End Time </label>
-                                <input type="text" class="form-control" id="firstname" placeholder="Enter first name"
-                                    required [(ngModel)]="trainingSchedule.endTime" name="firstname">
+                                <label for="endTime"> End Time </label>
+                                <select class="custom-select" id="endTime" required [(ngModel)]="trainingSchedule.endTime" name="endTime" >
+                                    <option [value]="item" *ngFor="let item of hourList | async"> {{item}} </option>                                    
+                                </select>
                             </div>
                         </div>
                         <div class="row">
@@ -34,10 +38,12 @@
 
                             <div class="form-group col-md-6 mb-3">
                                 <label for="sex"> Coach </label>
-                                <select class="custom-select" id="coach" required [(ngModel)]="trainingSchedule.coach"
+
+                                <select class="custom-select" id="coach" required [(ngModel)]="coachId"
                                     name="coach">
                                     <option value="{{item.id}}" *ngFor = "let item of coach | async"> {{item.name}} </option>                                   
                                 </select>
+
                             </div>
                         </div>
                         <button type="submit" class="btn btn-success float-right">Aceptar</button>

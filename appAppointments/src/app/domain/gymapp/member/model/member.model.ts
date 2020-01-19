@@ -6,5 +6,5 @@ export class Member {
     sex: string;
     age: number;
     phone: number;
-    registrationDate: Date;
+    registrationDate: String;
 }

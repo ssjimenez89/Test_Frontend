@@ -25,8 +25,8 @@
                                 <label for="appointmentType"> Appointment type </label>
 
                                 <select class="custom-select" id="appointmentType" required
-                                    [(ngModel)]="appointmentData.appointmentType" name="appointmentType">
-                                    <option [value]="item" *ngFor="let item of appointmentType | async">
+                                    [(ngModel)]="appointmentData.appointmentType.id" name="appointmentType">
+                                    <option [value]="item.id" *ngFor="let item of appointmentType | async">
                                         {{item.name}} </option>
                                 </select>
 
@@ -38,8 +38,8 @@
                                 <label for="trainingSchedule"> Training schedule </label>
 
                                 <select class="custom-select" id="trainingSchedule" required
-                                    [(ngModel)]="appointmentData.trainingSchedule" name="trainingSchedule">
-                                    <option [value]="item" *ngFor="let item of trainingSchedule | async">
+                                    [(ngModel)]="appointmentData.trainingSchedule.id" name="trainingSchedule">
+                                    <option [value]="item.id" *ngFor="let item of trainingSchedule | async">
                                         {{item.date}} </option>
                                 </select>
 
@@ -47,10 +47,10 @@
                             <div class="form-group col-md-6 mb-3">
                                 <label for="member"> Member </label>
 
-                                <select class="custom-select" id="member" required [(ngModel)]="appointmentData.member"
+                                <select class="custom-select" id="member" required [(ngModel)]="appointmentData.member.id"
                                     name="member">
 
-                                    <option [value]="item" *ngFor="let item of member | async"> {{item.name}}
+                                    <option [value]="item.id" *ngFor="let item of member | async"> {{item.name}}
                                     </option>
                                 </select>
 

@@ -49,10 +49,6 @@ export class AppointmentEditComponent implements OnInit {
   editAppointment() {
     if (window.confirm('Ar you sure, you want to update an Appointment')) {
       this.appointmentService.updateAppointment(this.appointmentData.member.id, this.appointmentData.appointmentType.id, this.appointmentData.trainingSchedule.id, this.id, this.appointmentData).subscribe(data => {
-        console.log(this.id);
-        console.log(this.appointmentData.name);
-        console.log(this.appointmentData.member.id);
-
         this.router.navigate(['appointment/list']);
       });
     }

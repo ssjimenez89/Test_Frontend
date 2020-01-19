@@ -14,8 +14,10 @@ import { Coach } from './../../coach/model/coach.model';
 export class TrainingScheduleCreateComponent implements OnInit {
 
   trainingSchedule: TrainingSchedule = new TrainingSchedule();
+  coachId: number;
   submitted = false;
   coach: Observable<Coach[]>;
+  hourList: Observable<any[]>;
 
   constructor(
     private trainingScheduleService: TrainingscheduleService,
@@ -28,15 +30,16 @@ export class TrainingScheduleCreateComponent implements OnInit {
 
   reloadData() {
     this.coach = this.coachService.getCoachList();
+    this.hourList = this.trainingScheduleService.getHourList();
   }
 
-  newMember(): void{
+  newTrainingSchedule(): void{
     this.submitted = false;
     this.trainingSchedule = new TrainingSchedule();
   }
 
   save(){
-    this.trainingScheduleService.createTrainingSchedule ( this.trainingSchedule.coach.id, this.trainingSchedule)
+    this.trainingScheduleService.createTrainingSchedule ( this.coachId, this.trainingSchedule)
       .subscribe(data => console.log(data), error => console.log(error));
     this.trainingSchedule = new TrainingSchedule();
     this.router.navigate(['trainingschedule/list']);

@@ -16,6 +16,8 @@ export class TrainingScheduleEditComponent implements OnInit {
   id = this.actRoute.snapshot.params['id'];
   trainingScheduleData: any = {};
   coach: Observable<Coach[]>;
+  hourList: Observable<any[]>;
+  coachId: number;
 
   constructor(
     public trainingSchedulService: TrainingscheduleService,
@@ -35,11 +37,12 @@ export class TrainingScheduleEditComponent implements OnInit {
 
   reloadData() {
     this.coach = this.coachService.getCoachList();
+    this.hourList = this.trainingSchedulService.getHourList();
   }
 
   TrainingScheduleEditComponent() {
     if (window.confirm('Ar you sure, you want to update an Training Schedule')) {
-      this.trainingSchedulService.updateTrainingSchedule(this.id, this.trainingScheduleData).subscribe(data => {
+      this.trainingSchedulService.updateTrainingSchedule(this.id, this.trainingScheduleData.coach.id, this.trainingScheduleData).subscribe(data => {
         this.router.navigate(['trainingschedule/list']);
       });
     }
