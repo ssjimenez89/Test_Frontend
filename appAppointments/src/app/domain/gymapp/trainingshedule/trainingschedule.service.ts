@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class TrainingscheduleService {
 
   private baseUrl = '/api/trainingschedule';
+  private baseUrlHour = '/api/hour';
 
   constructor(private http: HttpClient) { }
 
@@ -23,11 +24,15 @@ export class TrainingscheduleService {
     return this.http.post(`${this.baseUrl}/${coachId}`, trainingschedule);
   }
 
-  updateTrainingSchedule(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+  updateTrainingSchedule(id: number, coachId: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${coachId}/${id}`, value);
   }
 
   deleteTrainingSchedule(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  }
+
+  getHourList(): Observable<any> {
+    return this.http.get(`${this.baseUrlHour}`);
   }
 }
