@@ -2,6 +2,7 @@ import { CoachService } from './../coach.service';
 import { Coach } from './../model/coach.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
  
 @Component({
   selector: 'app-coach-edit',
@@ -11,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CoachEditComponent implements OnInit {
   id = this.actRoute.snapshot.params['id'];
   coachData: any = {};
+  sexList: Observable<any[]>;
 
   constructor(
     public coachService: CoachService,
@@ -24,6 +26,11 @@ export class CoachEditComponent implements OnInit {
       .subscribe((data: {}) => {
         this.coachData = data;
       });
+    this.reloadData();
+  }
+
+  reloadData(){
+    this.sexList = this.coachService.getSexList();
   }
 
   CoachEditComponent() {

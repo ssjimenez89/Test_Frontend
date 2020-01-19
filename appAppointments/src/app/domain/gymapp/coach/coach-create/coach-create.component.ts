@@ -2,6 +2,7 @@ import { CoachService } from './../coach.service';
 import { Coach} from './../model/coach.model';
 import { Component, OnInit } from '@angular/core'; 
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-coach-create',
@@ -12,12 +13,18 @@ export class CoachCreateComponent implements OnInit {
 
   coach: Coach = new Coach();
   submitted = false;
+  sexList: Observable<any[]>;
 
   constructor(
     private coachService: CoachService, 
     private router: Router) { }
 
   ngOnInit() {
+    this.reloadData();
+  }
+
+  reloadData(){
+    this.sexList = this.coachService.getSexList();
   }
 
   newCoach(): void{
