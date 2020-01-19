@@ -2,6 +2,7 @@ import { MemberService } from './../member.service';
 import { Member } from './../model/member.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-member-edit',
@@ -12,6 +13,7 @@ export class MemberEditComponent implements OnInit {
 
   id = this.actRoute.snapshot.params['id'];
   memberData: any = {};
+  sexList: Observable<any[]>;
 
   constructor(
     public memberService: MemberService,
@@ -25,6 +27,11 @@ export class MemberEditComponent implements OnInit {
       .subscribe((data: {}) => {
         this.memberData = data;
       });
+    this.reloadData();
+  }
+
+  reloadData(){
+    this.sexList = this.memberService.getSexList();
   }
 
   MemberEditComponent() {

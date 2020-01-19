@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class MemberService {
 
   private baseUrl = '/api/member';
+  private baseUrlSex = '/api/sex';
 
   constructor(private http: HttpClient) { }
 
@@ -30,4 +31,9 @@ export class MemberService {
   deleteMember(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
+
+  getSexList(): Observable<any> {
+    return this.http.get(`${this.baseUrlSex}`);
+  }
+
 }
