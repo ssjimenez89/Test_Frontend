@@ -6,7 +6,6 @@ import { CoachService } from './../../coach/coach.service';
 import { Observable } from 'rxjs';
 import { Coach } from './../../coach/model/coach.model';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-training-schedule-create',
@@ -26,7 +25,7 @@ export class TrainingScheduleCreateComponent implements OnInit {
     private trainingScheduleService: TrainingscheduleService,
     private router: Router,
     private coachService: CoachService,
-    private datePipe: DatePipe) { }
+    ) { }
 
   ngOnInit() {
     this.reloadData();

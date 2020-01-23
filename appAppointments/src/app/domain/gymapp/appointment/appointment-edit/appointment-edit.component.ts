@@ -21,6 +21,7 @@ export class AppointmentEditComponent implements OnInit {
   appointmentType: Observable<AppointmentType[]>;
   trainingSchedule: Observable<TrainingSchedule[]>;
   member: Observable<Member[]>;
+  submitted = false;
 
   constructor(
     public appointmentService: AppointmentService,
@@ -52,6 +53,11 @@ export class AppointmentEditComponent implements OnInit {
         this.router.navigate(['appointment/list']);
       });
     }
+  }
+
+  onSubmit(){
+    this.submitted = true;
+    this.editAppointment();
   }
 
 }

@@ -14,6 +14,7 @@ export class MemberEditComponent implements OnInit {
   id = this.actRoute.snapshot.params['id'];
   memberData: any = {};
   sexList: Observable<any[]>;
+   submitted = false;
 
   constructor(
     public memberService: MemberService,
@@ -40,6 +41,11 @@ export class MemberEditComponent implements OnInit {
         this.router.navigate(['member/list']);
       });
     }
+  }
+
+  onSubmit(){
+    this.submitted = true;
+    this.MemberEditComponent();
   }
 
 }

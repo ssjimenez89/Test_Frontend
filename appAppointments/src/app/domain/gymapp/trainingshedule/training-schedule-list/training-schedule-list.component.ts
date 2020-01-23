@@ -11,6 +11,9 @@ import { Component, OnInit } from '@angular/core';
 export class TrainingScheduleListComponent implements OnInit {
 
   trainingschedule: Observable<TrainingSchedule[]>;
+  name = 'TrainingSchedule';
+  page = 1;
+  pageSize = 5; 
 
   constructor(private trainingscheduleService: TrainingscheduleService) { }
 

@@ -13,6 +13,7 @@ export class CoachEditComponent implements OnInit {
   id = this.actRoute.snapshot.params['id'];
   coachData: any = {};
   sexList: Observable<any[]>;
+  submitted = false;
 
   constructor(
     public coachService: CoachService,
@@ -40,4 +41,10 @@ export class CoachEditComponent implements OnInit {
       });
     }
   }
+
+  onSubmit(){
+    this.submitted = true;
+    this.CoachEditComponent();
+  }
+
 }

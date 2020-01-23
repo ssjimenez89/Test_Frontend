@@ -12,6 +12,9 @@ import { Component, OnInit } from '@angular/core';
 export class AppointmentListComponent implements OnInit {
 
   appointment: Observable<Appointment[]>;
+  name = 'Appointment';
+  page = 1;
+  pageSize = 5; 
 
 
   constructor(private appointmentService: AppointmentService) { }

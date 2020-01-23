@@ -11,6 +11,9 @@ import { Component, OnInit } from '@angular/core';
 export class CoachListComponent implements OnInit {
 
   coach: Observable<Coach[]>;
+  name = 'Coach';
+  page = 1;
+  pageSize = 5; 
 
 
   constructor(private coachService: CoachService) { }

@@ -1,6 +1,8 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink=""><div class="fa fa-home "></div> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="">
+                <div class="fa fa-home "></div> Home
+            </a></li>
         <li class="breadcrumb-item"><a routerLink="/appointmenttype/list">List Appointment Type</a></li>
         <li class="breadcrumb-item active" aria-current="page">Edit Appointment Type</li>
     </ol>
@@ -11,27 +13,51 @@
             <div class="card-header bg-dark text-white "> Edit Appointment Type</div>
             <div class="card-body">
 
-                <div class="container custom-container">
-                    <div class="col-md-12">
+                <div [hidden]="submitted">
+                    <form (ngSubmit)="onSubmit(appointmentTypeForm)" #appointmentTypeForm="ngForm">
 
-                        <div class="form-group">
-                            <label for="name"> Name </label>
-                            <input type="text" [(ngModel)]="appointmentTypeData.name" class="form-control"
-                                placeholder="Name">
+                        <div class="container custom-container">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="name"> Name </label>
+                                    <input type="text" required [(ngModel)]="appointmentTypeData.name"
+                                        class="form-control" placeholder="Name" name="name" #name="ngModel"
+                                        minlength="5">
+                                    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                                        <div *ngIf="name.errors?.required">
+                                            This field is required
+                                        </div>
+                                        <div *ngIf="name.errors?.minlength">
+                                            At least 5 characters
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name"> Description </label>
+                                    <textarea type="text" required [(ngModel)]="appointmentTypeData.description"
+                                        class="form-control" row="6" placeholder="Description" name="description"
+                                        #description="ngModel" minlength="10"></textarea>
+                                    <div [hidden]="description.valid || description.pristine"
+                                        class="alert alert-danger">
+                                        <div *ngIf="description.errors?.required">
+                                            This field is required
+                                        </div>
+                                        <div *ngIf="description.errors?.minlength">
+                                            At least 10 characters
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <button class="btn btn-success float-right" [disabled]="!appointmentTypeForm.form.valid" 
+                                    > <div class="fa fa-check"></div> Aceptar
+                                    </button>
+                                </div>
+
+                            </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="name"> Description </label>
-                            <textarea type="text" [(ngModel)]="appointmentTypeData.description" class="form-control"
-                                row="6" placeholder="Description">
-                    </textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <button class="btn btn-success float-right" (click)="editAppointmentType()"><div class="fa fa-check"></div> Aceptar</button>
-                        </div>
-
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
