@@ -18,6 +18,7 @@ export class TrainingScheduleEditComponent implements OnInit {
   coach: Observable<Coach[]>;
   hourList: Observable<any[]>;
   coachId: number;
+  submitted = false;
 
   constructor(
     public trainingSchedulService: TrainingscheduleService,
@@ -47,4 +48,10 @@ export class TrainingScheduleEditComponent implements OnInit {
       });
     }
   }
+
+  onSubmit(){
+    this.submitted = true;
+    this.TrainingScheduleEditComponent();
+  }
+
 }

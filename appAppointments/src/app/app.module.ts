@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { DatePipe } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './domain/home/home/home.component';
 import { NavComponent } from './base/layout/nav/nav.component';
@@ -89,8 +88,7 @@ import { ApiUnsplashService } from './base/layout/api-unsplash/api-unsplash.serv
     HttpClientModule
   ],
   providers: [
-    ApiUnsplashService,
-    DatePipe
+    ApiUnsplashService
   ],
   bootstrap: [AppComponent]
 })

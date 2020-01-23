@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { AppointmentType } from '../models/appointmenttype.model';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-appointment-type-list',
   templateUrl: './appointment-type-list.component.html',
@@ -11,7 +12,9 @@ import { Component, OnInit } from '@angular/core';
 export class AppointmentTypeListComponent implements OnInit {
 
   appointmentType: Observable<AppointmentType[]>;
-
+  name = 'Angular';
+  page = 1;
+  pageSize = 5; 
 
   constructor(private appointmenttypeService: AppointmenttypeService) { }
 
@@ -23,8 +26,9 @@ export class AppointmentTypeListComponent implements OnInit {
     this.appointmentType = this.appointmenttypeService.getAppointmentTypeList();
   }
 
+
   deleteAppointmentType(id: number) {
-    if (window.confirm('Ar you sure, you want to delete an Coach')) {
+    if (window.confirm('Ar you sure, you want to delete an Appointment Type')) {
 
       this.appointmenttypeService.deleteAppointmentType(id)
         .subscribe(

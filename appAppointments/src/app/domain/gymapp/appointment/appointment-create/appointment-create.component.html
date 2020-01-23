@@ -1,6 +1,8 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink=""><div class="fa fa-home "></div> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="">
+                <div class="fa fa-home "></div> Home
+            </a></li>
         <li class="breadcrumb-item"><a routerLink="/appointment/list">List Appointment</a></li>
         <li class="breadcrumb-item active" aria-current="page">Create Appointment</li>
     </ol>
@@ -12,53 +14,78 @@
             <div class="card-body">
 
                 <div [hidden]="submitted">
-                    <form (ngSubmit)="onSubmit()">
+                    <form (ngSubmit)="onSubmit(appointmentForm)" #appointmentForm="ngForm">
 
                         <div class="row">
                             <div class="form-group col-md-6 mb-3">
                                 <label for="name"> Name </label>
-
                                 <input type="text" class="form-control" id="name" placeholder="Enter name" required
-                                    [(ngModel)]="appointment.name" name="name">
+                                    [(ngModel)]="appointment.name" name="name" #name="ngModel" minlength="5">
+                                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                                    <div *ngIf="name.errors?.required">
+                                        This field is required
+                                    </div>
+                                    <div *ngIf="name.errors?.minlength">
+                                        At least 5 characters
+                                    </div>
+                                </div>
 
                             </div>
 
                             <div class="form-group col-md-6 mb-3">
                                 <label for="appointmentType"> Appointment type </label>
-
-                                <select class="custom-select" id="appointmentType" required
-                                    [(ngModel)]="appointmentTypeData.id" name="appointmentType">
+                                <select class="custom-select" id="appointmenttype" required
+                                    [(ngModel)]="appointmentTypeData.id" name="appointmenttype"
+                                    #appointmenttype="ngModel">
                                     <option [value]="item.id" *ngFor="let item of appointmentType | async">
-                                       {{item.name}} </option>
+                                        {{item.name}} </option>
                                 </select>
+                                <div [hidden]="appointmenttype.valid || appointmenttype.pristine"
+                                    class="alert alert-danger">
+                                    <div *ngIf="appointmenttype.errors?.required">
+                                        This field is required
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6 mb-3">
+                                <label for="trainingSchedule"> Training schedule </label>
+
+                                <select class="custom-select" id="trainingschedule" required
+                                    [(ngModel)]="trainingScheduleData.id" name="trainingschedule"
+                                    #trainingschedule="ngModel">
+                                    <option [value]="item.id" *ngFor="let item of trainingSchedule | async">
+                                        {{item.date}}___Of_{{item.startTime}}___To_{{item.endTime}} </option>
+                                </select>
+                                <div [hidden]="trainingschedule.valid || trainingschedule.pristine"
+                                    class="alert alert-danger">
+                                    <div *ngIf="trainingschedule.errors?.required">
+                                        This field is required
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group col-md-6 mb-3">
                                 <label for="member"> Member </label>
 
-                                <select class="custom-select" id="member" required [(ngModel)]="memberData.id"
-                                    name="member">                                   
-                                    
+                                <select class="custom-select" id="members" required [(ngModel)]="memberData.id"
+                                    name="members" #members="ngModel">
                                     <option [value]="item.id" *ngFor="let item of member | async"> {{item.name}}
                                     </option>
                                 </select>
-                                
-                                
-                            </div>                            
-                            <div class="form-group col-md-6 mb-3">
-                                <label for="trainingSchedule"> Training schedule </label>
-
-                                <select class="custom-select" id="trainingSchedule" required
-                                    [(ngModel)]="trainingScheduleData.id" name="trainingSchedule">
-                                    <option [value]="item.id" *ngFor="let item of trainingSchedule | async">
-                                       {{item.date}}___Of_{{item.startTime}}___To_{{item.endTime}} </option>
-                                </select>
-
+                                <div [hidden]="members.valid || members.pristine" class="alert alert-danger">
+                                    <div *ngIf="members.errors?.required">
+                                        This field is required
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success float-right"><div class="fa fa-check"></div> Aceptar</button>
+                        <button type="submit" class="btn btn-success float-right"
+                            [disabled]="!appointmentForm.form.valid">
+                            <div class="fa fa-check"></div> Aceptar
+                        </button>
                     </form>
                 </div>
             </div>

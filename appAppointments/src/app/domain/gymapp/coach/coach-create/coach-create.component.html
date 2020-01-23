@@ -1,6 +1,8 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink=""><div class="fa fa-home "></div> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="">
+                <div class="fa fa-home "></div> Home
+            </a></li>
         <li class="breadcrumb-item"><a routerLink="/coach/list">List Coach</a></li>
         <li class="breadcrumb-item active" aria-current="page">Create Coach</li>
     </ol>
@@ -12,45 +14,95 @@
             <div class="card-body">
 
                 <div [hidden]="submitted">
-                    <form (ngSubmit)="onSubmit()">
+                    <form (ngSubmit)="onSubmit(coachForm)" #coachForm="ngForm">
                         <div class="row">
                             <div class="form-group col-md-4 mb-3">
                                 <label for="name"> Name </label>
                                 <input type="text" class="form-control" id="name" placeholder="Enter name" required
-                                    [(ngModel)]="coach.name" name="name">
+                                    [(ngModel)]="coach.name" name="name" #name="ngModel" minlength="5">
+                                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                                    <div *ngIf="name.errors?.required">
+                                        This field is required
+                                    </div>
+                                    <div *ngIf="name.errors?.minlength">
+                                        At least 5 characters
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group col-md-4 mb-3">
                                 <label for="firstname"> First surname </label>
                                 <input type="text" class="form-control" id="firstname" placeholder="Enter first name"
-                                    required [(ngModel)]="coach.firstSurname" name="firstname">
+                                    required [(ngModel)]="coach.firstSurname" name="firstname" #firstname="ngModel"
+                                    minlength="5">
+                                <div [hidden]="firstname.valid || firstname.pristine" class="alert alert-danger">
+                                    <div *ngIf="firstname.errors?.required">
+                                        This field is required
+                                    </div>
+                                    <div *ngIf="firstname.errors?.minlength">
+                                        At least 5 characters
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group col-md-4 mb-3">
                                 <label for="secondname"> Second surname </label>
                                 <input type="text" class="form-control" id="secondname" placeholder="Enter second name"
-                                    required [(ngModel)]="coach.secondSurname" name="secondname">
+                                    required [(ngModel)]="coach.secondSurname" name="secondname" #secondname="ngModel"
+                                    minlength="5">
+                                <div [hidden]="secondname.valid || secondname.pristine" class="alert alert-danger">
+                                    <div *ngIf="secondname.errors?.required">
+                                        This field is required
+                                    </div>
+                                    <div *ngIf="secondname.errors?.minlength">
+                                        At least 5 characters
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="form-group col-md-4 mb-3">
                                 <label for="sex"> Sex </label>
-                                <select class="custom-select" id="sex" required [(ngModel)]="coach.sex" name="sex">
+                                <select class="custom-select" id="sex" required [(ngModel)]="coach.sex" name="sex"
+                                    #sex="ngModel">
                                     <option [value]="item" *ngFor="let item of sexList | async"> {{item}}</option>
                                 </select>
+                                <div [hidden]="sex.valid || sex.pristine" class="alert alert-danger">
+                                    <div *ngIf="sex.errors?.required">
+                                        This field is required
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group col-md-4 mb-3">
                                 <label for="age"> Age </label>
                                 <input type="number" class="form-control" id="age" placeholder="Enter age" required
-                                    [(ngModel)]="coach.age" name="age">
+                                    [(ngModel)]="coach.age" name="age" #age="ngModel" minlength="1">
+                                <div [hidden]="age.valid || age.pristine" class="alert alert-danger">
+                                    <div *ngIf="age.errors?.required">
+                                        This field is required
+                                    </div>
+                                    <div *ngIf="age.errors?.minlength">
+                                        At least 1 characters
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group col-md-4 mb-3">
                                 <label for="phone"> Phone </label>
                                 <input type="number" class="form-control" id="phone" placeholder="Enter phone" required
-                                    [(ngModel)]="coach.phone" name="phone">
+                                    [(ngModel)]="coach.phone" name="phone" #phone="ngModel" minlength="8">
+                                <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+                                    <div *ngIf="phone.errors?.required">
+                                        This field is required
+                                    </div>
+                                    <div *ngIf="phone.errors?.minlength">
+                                        At least 1 characters
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-success float-right"><div class="fa fa-check"></div> Aceptar</button>
+                        <button type="submit" class="btn btn-success float-right" [disabled]="!coachForm.form.valid">
+                            <div class="fa fa-check"></div> Aceptar
+                        </button>
                     </form>
                 </div>
             </div>

@@ -1,6 +1,8 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink=""><div class="fa fa-home "></div>Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="">
+                <div class="fa fa-home "></div>Home
+            </a></li>
         <li class="breadcrumb-item"><a routerLink="/member/list">List Member</a></li>
         <li class="breadcrumb-item active" aria-current="page">Edit Member</li>
     </ol>
@@ -10,54 +12,111 @@
         <div class="card ">
             <div class="card-header bg-dark text-white "> Edit Member</div>
             <div class="card-body">
-                <div class="container custom-container">
-                    <div class="col-md-12">
 
-                        <div class="row">
-                            <div class="form-group col-md-4 mb-3">
-                                <label for="name"> Name </label>
-                                <input type="text" [(ngModel)]="memberData.name" class="form-control" placeholder="Name">
-                            </div>
-                            <div class="form-group col-md-4 mb-3">
-                                <label for="firstname"> First surname </label>
-                                <input type="text" [(ngModel)]="memberData.firstSurname" class="form-control"
-                                    placeholder="First name">
-                            </div>
-                            <div class="form-group col-md-4 mb-3">
-                                <label for="secondname"> Second surname </label>
-                                <input type="text" [(ngModel)]="memberData.secondSurname" class="form-control"
-                                    placeholder="Second Name">
+                <div [hidden]="submitted">
+                    <form (ngSubmit)="onSubmit(memberForm)" #memberForm="ngForm">
+                        
+                        <div class="container custom-container">
+                            <div class="col-md-12">
+
+                                <div class="row">
+                                    <div class="form-group col-md-4 mb-3">
+                                        <label for="name"> Name </label>
+                                        <input type="text" required [(ngModel)]="memberData.name" class="form-control"
+                                            placeholder="Name" name="name" #name="ngModel" minlength="5">
+                                        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                                            <div *ngIf="name.errors?.required">
+                                                This field is required
+                                            </div>
+                                            <div *ngIf="name.errors?.minlength">
+                                                At least 5 characters
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4 mb-3">
+                                        <label for="firstname"> First surname </label>
+                                        <input type="text" required [(ngModel)]="memberData.firstSurname" class="form-control"
+                                            placeholder="First name" name="firstname" #firstname="ngModel" minlength="5">
+                                        <div [hidden]="firstname.valid || firstname.pristine"
+                                            class="alert alert-danger">
+                                            <div *ngIf="firstname.errors?.required">
+                                                This field is required
+                                            </div>
+                                            <div *ngIf="firstname.errors?.minlength">
+                                                At least 5 characters
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4 mb-3">
+                                        <label for="secondname"> Second surname </label>
+                                        <input type="text" required [(ngModel)]="memberData.secondSurname" class="form-control"
+                                            placeholder="Second Name" name="secondname" #secondname="ngModel"
+                                            minlength="5">
+                                        <div [hidden]="secondname.valid || secondname.pristine"
+                                            class="alert alert-danger">
+                                            <div *ngIf="secondname.errors?.required">
+                                                This field is required
+                                            </div>
+                                            <div *ngIf="secondname.errors?.minlength">
+                                                At least 5 characters
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-4 mb-3">
+                                        <label for="sex"> Sex </label>
+                                        <select class="custom-select" required [(ngModel)]="memberData.sex" name="sex"
+                                            #sex="ngModel">
+                                            <option [value]="item" *ngFor="let item of sexList | async"> {{item}}
+                                            </option>
+                                        </select>
+                                        <div [hidden]="sex.valid || sex.pristine" class="alert alert-danger">
+                                            <div *ngIf="sex.errors?.required">
+                                                This field is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4 mb-3">
+                                        <label for="firstname"> Age </label>
+                                        <input type="number" required [(ngModel)]="memberData.age" class="form-control"
+                                            placeholder="First name" name="age" #age="ngModel" minlength="1">
+                                        <div [hidden]="age.valid || age.pristine" class="alert alert-danger">
+                                            <div *ngIf="age.errors?.required">
+                                                This field is required
+                                            </div>
+                                            <div *ngIf="age.errors?.minlength">
+                                                At least 1 characters
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4 mb-3">
+                                        <label for="secondname"> Phone </label>
+                                        <input type="number" required [(ngModel)]="memberData.phone" class="form-control"
+                                            placeholder="Second Name" name="phone" #phone="ngModel" minlength="8">
+                                        <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+                                            <div *ngIf="phone.errors?.required">
+                                                This field is required
+                                            </div>
+                                            <div *ngIf="phone.errors?.minlength">
+                                                At least 8 characters
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <button class="btn btn-success float-right" [disabled]="!memberForm.form.valid">
+                                        <div class="fa fa-check"></div> Aceptar
+                                    </button>
+                                </div>
+
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="form-group col-md-4 mb-3">
-                                <label for="sex"> Sex </label>
-                                <select class="custom-select" required [(ngModel)]="memberData.sex">
-                                    <option [value]="item" *ngFor="let item of sexList | async"> {{item}}</option>
-                                    
-                                </select>
-                            </div>
-                            <div class="form-group col-md-4 mb-3">
-                                <label for="firstname"> Age </label>
-                                <input type="number" [(ngModel)]="memberData.age" class="form-control"
-                                    placeholder="First name">
-                            </div>
-                            <div class="form-group col-md-4 mb-3">
-                                <label for="secondname"> Phone </label>
-                                <input type="number" [(ngModel)]="memberData.phone" class="form-control"
-                                    placeholder="Second Name">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <button class="btn btn-success float-right" (click)="MemberEditComponent()"><div class="fa fa-check"></div> Aceptar</button>
-                        </div>
-
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
- 

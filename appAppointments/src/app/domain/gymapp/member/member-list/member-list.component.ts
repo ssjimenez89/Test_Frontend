@@ -11,6 +11,9 @@ import { Component, OnInit } from '@angular/core';
 export class MemberListComponent implements OnInit {
 
   member: Observable<Member[]>;
+  name = 'Member';
+  page = 1;
+  pageSize = 5; 
 
   constructor(private memberService: MemberService) { }
 

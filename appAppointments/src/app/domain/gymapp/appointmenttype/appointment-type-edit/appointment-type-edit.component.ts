@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AppointmentTypeEditComponent implements OnInit {
   id = this.actRoute.snapshot.params['id'];
   appointmentTypeData: any = {};
+  submitted = false;
 
   constructor(
     public appointmentService: AppointmenttypeService,
@@ -32,6 +33,11 @@ export class AppointmentTypeEditComponent implements OnInit {
         this.router.navigate(['appointmenttype/list']);
       });
     }
+  }
+
+  onSubmit(){
+    this.submitted = true;
+    this.editAppointmentType();
   }
 
 

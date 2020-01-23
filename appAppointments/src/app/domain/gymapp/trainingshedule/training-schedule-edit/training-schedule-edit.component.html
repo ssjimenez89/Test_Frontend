@@ -1,6 +1,8 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink=""><div class="fa fa-home "></div> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="">
+                <div class="fa fa-home "></div> Home
+            </a></li>
         <li class="breadcrumb-item"><a routerLink="/trainingschedule/list">List Training Schedule</a></li>
         <li class="breadcrumb-item active" aria-current="page">Edit Training Schedule</li>
     </ol>
@@ -10,50 +12,83 @@
         <div class="card ">
             <div class="card-header bg-dark text-white "> Edit Training Schedule</div>
             <div class="card-body">
-                <div class="container custom-container">
-                    <div class="col-md-12">
 
-                        <div class="row">
-                            <div class="form-group col-md-6 mb-3">
-                                <label for="startTime"> Start Time </label>
-                                <select class="custom-select" id="startTime" required
-                                    [(ngModel)]="trainingScheduleData.startTime" name="startTime">
-                                    <option [value]="item" *ngFor="let item of hourList | async"> {{item}} </option>
-                                </select>
-                            </div>
+                <div [hidden]="submitted">
+                    <form (ngSubmit)="onSubmit(memberForm)" #memberForm="ngForm">
 
-                            <div class="form-group col-md-6 mb-3">
-                                <label for="endTime"> End Time </label>
-                                <select class="custom-select" id="endTime" required
-                                    [(ngModel)]="trainingScheduleData.endTime" name="endTime">
-                                    <option [value]="item" *ngFor="let item of hourList | async"> {{item}} </option>
-                                </select>
+                        <div class="container custom-container">
+                            <div class="col-md-12">
+
+                                <div class="row">
+                                    <div class="form-group col-md-6 mb-3">
+                                        <label for="startTime"> Start Time </label>
+                                        <select class="custom-select" id="startTime" required
+                                            [(ngModel)]="trainingScheduleData.startTime" name="startTime"
+                                            #startTime="ngModel">
+                                            <option [value]="item" *ngFor="let item of hourList | async"> {{item}}
+                                            </option>
+                                        </select>
+                                        <div [hidden]="startTime.valid || startTime.pristine"
+                                            class="alert alert-danger">
+                                            <div *ngIf="startTime.errors?.required">
+                                                This field is required
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-6 mb-3">
+                                        <label for="endTime"> End Time </label>
+                                        <select class="custom-select" id="endTime" required
+                                            [(ngModel)]="trainingScheduleData.endTime" name="endTime"
+                                            #endTime="ngModel">
+                                            <option [value]="item" *ngFor="let item of hourList | async"> {{item}}
+                                            </option>
+                                        </select>
+                                        <div [hidden]="endTime.valid || endTime.pristine" class="alert alert-danger">
+                                            <div *ngIf="endTime.errors?.required">
+                                                This field is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-6 mb-3">
+                                        <label for="secondname"> Date </label>
+                                        <input type="date" [(ngModel)]="trainingScheduleData.date" class="form-control"
+                                            placeholder="Second Name" name="date" #date="ngModel" minlength="5">
+                                        <div [hidden]="date.valid || date.pristine" class="alert alert-danger">
+                                            <div *ngIf="date.errors?.required">
+                                                This field is required
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-6 mb-3">
+                                        <label for="coach"> Coach </label>
+                                        <select class="custom-select" id="coach" required
+                                            [(ngModel)]="trainingScheduleData.coach.id" name="coachs" #coachs="ngModel">
+                                            <option [value]="item.id" *ngFor="let item of coach | async"> {{item.name}}
+                                            </option>
+                                        </select>
+                                        <div [hidden]="coachs.valid || coachs.pristine" class="alert alert-danger">
+                                            <div *ngIf="coachs.errors?.required">
+                                                This field is required
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <button class="btn btn-success float-right" [disabled]="!memberForm.form.valid">
+                                        <div class="fa fa-check"></div> Aceptar
+                                    </button>
+                                </div>
+
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="form-group col-md-6 mb-3">
-                                <label for="secondname"> Date </label>
-                                <input type="date" [(ngModel)]="trainingScheduleData.date" class="form-control"
-                                    placeholder="Second Name">
-                            </div>
-
-                            <div class="form-group col-md-6 mb-3">
-                                <label for="coach"> Coach </label>
-                                <select class="custom-select" id="coach" required [(ngModel)]="trainingScheduleData.coach.id"
-                                    name="coach">
-                                    <option [value]="item.id" *ngFor="let item of coach | async"> {{item.name}} </option>
-                                </select>
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
-                            <button class="btn btn-success float-right"
-                                (click)="TrainingScheduleEditComponent()"><div class="fa fa-check"></div> Aceptar</button>
-                        </div>
-
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
