@@ -1,6 +1,6 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink=""><div class="fa fa-home "></div> Home</a></li>
         <li class="breadcrumb-item"><a routerLink="/trainingschedule/list">List Training Schedule</a></li>
         <li class="breadcrumb-item active" aria-current="page">Details Training Schedule</li>
     </ol>
@@ -28,7 +28,7 @@
                             <label>coach: </label> {{trainingScheduleData.coach.name}}
                         </div>
                     </div>
-                    <button class="btn btn-success float-right" (click)="detailsTrainingSchedule()">Cerrar</button>
+                    <button class="btn btn-success float-right" (click)="detailsTrainingSchedule()"><div class="fa fa-times"></div> Cerrar</button>
                 </div>
             </div>
         </div>

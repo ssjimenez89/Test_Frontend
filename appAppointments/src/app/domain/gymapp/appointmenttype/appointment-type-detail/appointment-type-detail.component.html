@@ -1,6 +1,6 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink=""><div class="fa fa-home "></div> Home</a></li>
         <li class="breadcrumb-item"><a routerLink="/appointmenttype/list">List Appointment Type</a></li>
         <li class="breadcrumb-item active" aria-current="page">Details Appointment Type</li>
     </ol>
@@ -17,7 +17,7 @@
                     <div>
                         <label>Description: </label> {{appointmentTypeData.description}}
                     </div>
-                    <button class="btn btn-success float-right" (click)="detailsAppointmentType()">Cerrar</button>
+                    <button class="btn btn-success float-right" (click)="detailsAppointmentType()"><div class="fa fa-times"></div> Cerrar</button>
                 </div>
             </div>
         </div>

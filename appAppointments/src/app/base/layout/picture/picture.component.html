@@ -1,0 +1,17 @@
+<div class="row justify-content-center">
+    <div class="col-sm-9">
+        <div class="row">
+        <div *ngFor="let picture of pictures">
+            <div class="pinWrapper card" data-toggle="modal" data-target="">
+                
+                    <div class="form-group col-md-3 mb-3">
+                        <img src="{{picture.img}}" class="imageResult" width=200 height=100>
+                        <div class="descriptions">
+                            <!--p-- class="card-text">{{picture.description}}</!--p-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

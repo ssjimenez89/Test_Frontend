@@ -24,7 +24,8 @@ export class AppointmentTypeListComponent implements OnInit {
   }
 
   deleteAppointmentType(id: number) {
-    if (window.confirm('Ar you sure, you want to delete an Appointment Type')) {
+    if (window.confirm('Ar you sure, you want to delete an Coach')) {
+
       this.appointmenttypeService.deleteAppointmentType(id)
         .subscribe(
           data => {
@@ -39,5 +40,7 @@ export class AppointmentTypeListComponent implements OnInit {
     this.appointmenttypeService.getAppointmentType(id);
 
   }
+
+
 
 }

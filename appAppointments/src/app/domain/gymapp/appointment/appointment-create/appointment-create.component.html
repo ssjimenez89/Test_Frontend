@@ -1,6 +1,6 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink=""><div class="fa fa-home "></div> Home</a></li>
         <li class="breadcrumb-item"><a routerLink="/appointment/list">List Appointment</a></li>
         <li class="breadcrumb-item active" aria-current="page">Create Appointment</li>
     </ol>
@@ -53,12 +53,12 @@
                                 <select class="custom-select" id="trainingSchedule" required
                                     [(ngModel)]="trainingScheduleData.id" name="trainingSchedule">
                                     <option [value]="item.id" *ngFor="let item of trainingSchedule | async">
-                                       Date: {{item.date}}  {{ "  " }}   Start Time:{{item.startTime}}     End Time:{{item.endTime}} </option>
+                                       {{item.date}}___Of_{{item.startTime}}___To_{{item.endTime}} </option>
                                 </select>
 
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success float-right">Aceptar</button>
+                        <button type="submit" class="btn btn-success float-right"><div class="fa fa-check"></div> Aceptar</button>
                     </form>
                 </div>
             </div>
