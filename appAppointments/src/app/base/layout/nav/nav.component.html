@@ -1,4 +1,4 @@
-<header>
+<header>       
     <nav class="navbar navbar-expand-md  navbar-dark  bg-dark mb-4">
         <div class="container">
             <a class="navbar-brand" href="#">GymApp</a>
@@ -11,10 +11,13 @@
 
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item ">
-                        <a class="nav-link active" routerLink="">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link " routerLink="">                        
+
+                   <div class="fa fa-home "></div>
+                    Home </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " routerLink="/appointment/list">Appointment</a>
+                        <a class="nav-link" routerLink="/appointment/list">Appointment</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/member/list">Member</a>
@@ -28,10 +31,13 @@
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/appointmenttype/list">Appointment Type</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/unsplash/hero">Hero</a>
+                    </li>
 
                 </ul>
                 <button routerLink="/appointment/create" class="btn btn-outline-success my-2 my-sm-0" role="button"
-                    aria-pressed="true">CREATE APPOINTMENT</button>
+                    aria-pressed="true"> <div class="fa fa-plus "></div> CREATE APPOINTMENT</button>
 
             </div>
         </div>

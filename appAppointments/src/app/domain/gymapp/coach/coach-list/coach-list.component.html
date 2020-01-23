@@ -1,6 +1,6 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink=""><div class="fa fa-home "></div> Home</a></li>
         <li class="breadcrumb-item active" aria-current="page" >List Coach</li>
     </ol>
 </nav>
@@ -11,8 +11,8 @@
                 <div class="card-header bg-dark text-white "> Coach</div>
                 <div class="card-body">
 
-                    <button routerLink="/coach/create" class="btn btn-success my-2 my-sm- float-right"
-                        role="button" aria-pressed="true">Create</button>
+                    <button routerLink="/coach/create" class="btn btn-success my-2 my-sm- float-right d-inline-block" tabindex="0" data-toggle="tooltip" title="Create"
+                        role="button" aria-pressed="true"> <div class="fa fa-plus "></div> </button>
                     <div class="panel-body">
                         <table class="table table-bordered ">
                             <thead class="thead-light">
@@ -38,15 +38,16 @@
                                     <td>{{item.phone}}</td>
                                     <td>
                                         <div class="row justify-content-center">
-                                            <span class="edit btn btn-info" style="margin-right: 5px; margin-left: 7px;"
-                                                routerLink="/coach/edit/{{item.id}}">Edit</span>
+                                            <span class="edit btn btn-info btn-sm d-inline-block" tabindex="0" data-toggle="tooltip" title="Edit" style="margin-right: 5px; margin-left: 7px;"
+                                                routerLink="/coach/edit/{{item.id}}"> <div class="fa fa-pencil-square-o"></div> </span>
 
 
-                                            <span class="details btn btn-secondary" style="margin-right: 5px;"
-                                                routerLink="/coach/details/{{item.id}}">Details</span>
-                                            <span class="delete" style="margin-right: 7px;"
+                                            <span class="details btn btn-secondary btn-sm d-inline-block" tabindex="0" data-toggle="tooltip" title="Details" style="margin-right: 5px;"
+                                                routerLink="/coach/details/{{item.id}}"> <div class="fa fa-eye"></div> </span>
+
+                                            <span class="delete btn btn-danger btn-sm d-inline-block" tabindex="0" data-toggle="tooltip" title="Delete" style="margin-right: 7px;"
                                                 (click)="deleteCoach(item.id)"
-                                                class="btn btn-danger">Delete</span>
+                                                > <div class="fa fa-trash-o"></div> </span>
                                         </div>
                                     </td>
                                 </tr>

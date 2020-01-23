@@ -1,6 +1,6 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink=""><div class="fa fa-home "></div> Home</a></li>
         <li class="breadcrumb-item"><a routerLink="/appointment/list">List Appointment</a></li>
         <li class="breadcrumb-item active" aria-current="page">Details Appointment</li>
     </ol>
@@ -21,13 +21,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label>Training schedule: </label> {{appointmentData.trainingSchedule.date}}
+                            <label>Training schedule: </label> {{appointmentData.trainingSchedule.date}}___Of_{{appointmentData.trainingSchedule.startTime}}___To_{{appointmentData.trainingSchedule.endTime}}
                         </div>
                         <div class="col-md-6 mb-3">
                             <label>Member: </label> {{appointmentData.member.name}}
                         </div>
                     </div>
-                    <button class="btn btn-success float-right" (click)="detailsAppointment()">Cerrar</button>
+                    <button class="btn btn-success float-right" (click)="detailsAppointment()"><div class="fa fa-times"></div> Cerrar</button>
                 </div>
             </div>
         </div>

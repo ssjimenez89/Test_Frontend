@@ -1,7 +1,7 @@
 import { AppointmenttypeService } from './../appointmenttype.service';
 import { AppointmentType } from '../models/appointmenttype.model';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-appointment-type-edit',

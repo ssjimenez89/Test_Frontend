@@ -23,6 +23,7 @@ import { AppointmentCreateComponent } from './domain/gymapp/appointment/appointm
 import { AppointmentDetailComponent } from './domain/gymapp/appointment/appointment-detail/appointment-detail.component';
 import { AppointmentEditComponent } from './domain/gymapp/appointment/appointment-edit/appointment-edit.component';
 import { AppointmentListComponent } from './domain/gymapp/appointment/appointment-list/appointment-list.component';
+import { PictureComponent } from './base/layout/picture/picture.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -57,6 +58,7 @@ const routes: Routes = [
       { path: 'appointment/create', component: AppointmentCreateComponent },
       { path: 'appointment/details/:id', component: AppointmentDetailComponent },
       { path: 'appointment/edit/:id', component: AppointmentEditComponent },
+      { path: 'unsplash/hero', component: PictureComponent },
 
     ]
   },

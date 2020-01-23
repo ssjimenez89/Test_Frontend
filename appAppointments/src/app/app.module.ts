@@ -4,6 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { DatePipe } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './domain/home/home/home.component';
 import { NavComponent } from './base/layout/nav/nav.component';
@@ -37,6 +40,8 @@ import { AppointmentDeleteComponent } from './domain/gymapp/appointment/appointm
 import { AppointmentDetailComponent } from './domain/gymapp/appointment/appointment-detail/appointment-detail.component';
 import { AppointmentEditComponent } from './domain/gymapp/appointment/appointment-edit/appointment-edit.component';
 import { AppointmentListComponent } from './domain/gymapp/appointment/appointment-list/appointment-list.component';
+import { PictureComponent } from './base/layout/picture/picture.component';
+import { ApiUnsplashService } from './base/layout/api-unsplash/api-unsplash.service';
 
 @NgModule({
   declarations: [
@@ -71,16 +76,22 @@ import { AppointmentListComponent } from './domain/gymapp/appointment/appointmen
     AppointmentDeleteComponent,
     AppointmentDetailComponent,
     AppointmentEditComponent,
-    AppointmentListComponent
+    AppointmentListComponent,
+    PictureComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    NgbModule,
+    NgxPaginationModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ApiUnsplashService,
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

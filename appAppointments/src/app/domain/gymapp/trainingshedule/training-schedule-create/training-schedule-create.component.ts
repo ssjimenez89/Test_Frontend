@@ -1,10 +1,12 @@
 import { TrainingscheduleService } from './../trainingschedule.service';
-import { TrainingSchedule} from './../model/trainingschedule.model';
+import { TrainingSchedule } from './../model/trainingschedule.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CoachService } from './../../coach/coach.service';
 import { Observable } from 'rxjs';
 import { Coach } from './../../coach/model/coach.model';
+import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-training-schedule-create',
@@ -18,11 +20,13 @@ export class TrainingScheduleCreateComponent implements OnInit {
   submitted = false;
   coach: Observable<Coach[]>;
   hourList: Observable<any[]>;
+  model: any; 
 
   constructor(
     private trainingScheduleService: TrainingscheduleService,
     private router: Router,
-    private coachService: CoachService) { }
+    private coachService: CoachService,
+    private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.reloadData();
@@ -33,19 +37,20 @@ export class TrainingScheduleCreateComponent implements OnInit {
     this.hourList = this.trainingScheduleService.getHourList();
   }
 
-  newTrainingSchedule(): void{
+  newTrainingSchedule(): void {
     this.submitted = false;
     this.trainingSchedule = new TrainingSchedule();
   }
 
-  save(){
-    this.trainingScheduleService.createTrainingSchedule ( this.coachId, this.trainingSchedule)
+  save() {
+    debugger
+    this.trainingScheduleService.createTrainingSchedule(this.coachId, this.trainingSchedule)
       .subscribe(data => console.log(data), error => console.log(error));
     this.trainingSchedule = new TrainingSchedule();
     this.router.navigate(['trainingschedule/list']);
   }
 
-  onSubmit(){
+  onSubmit() {
     this.submitted = true;
     this.save();
   }
