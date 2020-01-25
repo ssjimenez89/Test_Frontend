@@ -14,7 +14,7 @@
             <div class="card-body">
 
                 <div [hidden]="submitted">
-                    <form (ngSubmit)="onSubmit(appointmentTypeForm)" #appointmentTypeForm="ngForm">
+                    <form #appointmentTypeForm="ngForm">
 
                         <div class="container custom-container">
                             <div class="col-md-12">
@@ -50,8 +50,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button class="btn btn-success float-right" [disabled]="!appointmentTypeForm.form.valid" 
-                                    > <div class="fa fa-check"></div> Aceptar
+                                    <button class="btn btn-success float-right"
+                                        [disabled]="!appointmentTypeForm.form.valid" data-toggle="modal"
+                                        data-target="#modalEditAppointmenType">
+                                        <div class="fa fa-check"></div> Aceptar
                                     </button>
                                 </div>
 
@@ -59,6 +61,35 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modalEditAppointmenType" tabindex="-1" role="dialog"
+    aria-labelledby="modalEditAppointmenTypeTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditAppointmenTypeTitle">
+                    <div class="fa fa-exclamation-triangle" style="color: dodgerblue;"></div> Edit
+                    Appointment Type
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure, you want to edit an Appointment Type? </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    <div class="fa fa-times"></div> Cancel
+                </button>
+                <button type="button" class="btn btn-info" (click)="onSubmit()" data-dismiss="modal">
+                    <div class="fa fa-check"></div> Ok
+                </button>             
+                
             </div>
         </div>
     </div>

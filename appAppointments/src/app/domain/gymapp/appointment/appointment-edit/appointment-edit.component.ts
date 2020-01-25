@@ -47,12 +47,10 @@ export class AppointmentEditComponent implements OnInit {
     this.member = this.memberService.getMemberList();
   }
 
-  editAppointment() {
-    if (window.confirm('Ar you sure, you want to update an Appointment')) {
+  editAppointment() {  
       this.appointmentService.updateAppointment(this.appointmentData.member.id, this.appointmentData.appointmentType.id, this.appointmentData.trainingSchedule.id, this.id, this.appointmentData).subscribe(data => {
         this.router.navigate(['appointment/list']);
-      });
-    }
+      });    
   }
 
   onSubmit(){

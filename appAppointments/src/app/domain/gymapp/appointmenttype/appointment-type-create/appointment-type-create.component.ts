@@ -28,8 +28,10 @@ export class AppointmentTypeCreateComponent implements OnInit {
   save(){
     this.appointmentService.createAppointmentType(this.appointmentType)
       .subscribe(data => console.log(data), error => console.log(error));
-    this.appointmentType = new AppointmentType();
+    this.appointmentType = new AppointmentType();    
     this.router.navigate(['appointmenttype/list']);
+   
+  
   }
 
   onSubmit(){

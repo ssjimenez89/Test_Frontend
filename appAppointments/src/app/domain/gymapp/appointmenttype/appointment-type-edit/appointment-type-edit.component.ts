@@ -12,7 +12,7 @@ export class AppointmentTypeEditComponent implements OnInit {
   id = this.actRoute.snapshot.params['id'];
   appointmentTypeData: any = {};
   submitted = false;
-
+ 
   constructor(
     public appointmentService: AppointmenttypeService,
     public actRoute: ActivatedRoute,
@@ -28,11 +28,11 @@ export class AppointmentTypeEditComponent implements OnInit {
   }
 
   editAppointmentType() {
-    if (window.confirm('Ar you sure, you want to update an Appointment Type')) {
+  
       this.appointmentService.updateAppointmentType(this.id, this.appointmentTypeData).subscribe(data => {
         this.router.navigate(['appointmenttype/list']);
       });
-    }
+    
   }
 
   onSubmit(){

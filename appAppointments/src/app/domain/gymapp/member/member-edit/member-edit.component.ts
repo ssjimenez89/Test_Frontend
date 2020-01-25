@@ -14,7 +14,7 @@ export class MemberEditComponent implements OnInit {
   id = this.actRoute.snapshot.params['id'];
   memberData: any = {};
   sexList: Observable<any[]>;
-   submitted = false;
+  submitted = false;
 
   constructor(
     public memberService: MemberService,
@@ -31,19 +31,18 @@ export class MemberEditComponent implements OnInit {
     this.reloadData();
   }
 
-  reloadData(){
+  reloadData() {
     this.sexList = this.memberService.getSexList();
   }
 
   MemberEditComponent() {
-    if (window.confirm('Ar you sure, you want to update an Member')) {
-      this.memberService.updateMember(this.id, this.memberData).subscribe(data => {
-        this.router.navigate(['member/list']);
-      });
-    }
+    this.memberService.updateMember(this.id, this.memberData).subscribe(data => {
+      this.router.navigate(['member/list']);
+    });
+
   }
 
-  onSubmit(){
+  onSubmit() {
     this.submitted = true;
     this.MemberEditComponent();
   }
