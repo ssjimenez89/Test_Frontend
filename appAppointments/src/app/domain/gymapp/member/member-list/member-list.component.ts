@@ -14,6 +14,7 @@ export class MemberListComponent implements OnInit {
   name = 'Member';
   page = 1;
   pageSize = 5; 
+  id: number;
 
   constructor(private memberService: MemberService) { }
 
@@ -25,16 +26,18 @@ export class MemberListComponent implements OnInit {
     this.member = this.memberService.getMemberList();
   }
 
-  deleteMember(id: number) {
-    if (window.confirm('Ar you sure, you want to delete an Member')) {
-      this.memberService.deleteMember(id)
+  idSelected(id: number){
+    this.id = id;
+  }
+
+  deleteMember() {    
+      this.memberService.deleteMember(this.id)
         .subscribe(
           data => {
             console.log(data);
             this.reloadData();
           },
-          error => console.log(error));
-    }
+          error => console.log(error));    
   }
 
   detailsMember(id: number) {

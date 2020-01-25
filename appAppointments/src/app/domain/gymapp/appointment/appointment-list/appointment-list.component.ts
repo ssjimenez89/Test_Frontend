@@ -15,6 +15,7 @@ export class AppointmentListComponent implements OnInit {
   name = 'Appointment';
   page = 1;
   pageSize = 5; 
+  id: number;
 
 
   constructor(private appointmentService: AppointmentService) { }
@@ -27,16 +28,18 @@ export class AppointmentListComponent implements OnInit {
     this.appointment = this.appointmentService.getAppointmentList();
   }
 
-  deleteAppointment(id: number) {
-    if (window.confirm('Ar you sure, you want to delete an Appointment')) {
-      this.appointmentService.deleteAppointment(id)
+  idSelected(id: number){
+    this.id = id;
+  }
+
+  deleteAppointment() {  
+      this.appointmentService.deleteAppointment(this.id)
         .subscribe(
           data => {
             console.log(data);
             this.reloadData();
           },
-          error => console.log(error));
-    }
+          error => console.log(error));    
   }
 
   detailsAppointment(id: number) {

@@ -14,6 +14,7 @@ export class CoachListComponent implements OnInit {
   name = 'Coach';
   page = 1;
   pageSize = 5; 
+  id: number;
 
 
   constructor(private coachService: CoachService) { }
@@ -26,16 +27,18 @@ export class CoachListComponent implements OnInit {
     this.coach = this.coachService.getCoachList();
   }
 
-  deleteCoach(id: number) {
-    if (window.confirm('Ar you sure, you want to delete an Coach')) {
-      this.coachService.deleteCoach(id)
+  idSelected(id: number){
+    this.id = id;
+  }
+
+  deleteCoach() {    
+      this.coachService.deleteCoach(this.id)
         .subscribe(
           data => {
             console.log(data);
             this.reloadData();
           },
-          error => console.log(error));
-    }
+          error => console.log(error));    
   }
 
   detailsCoache(id: number) {
