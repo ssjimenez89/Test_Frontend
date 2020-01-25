@@ -43,7 +43,8 @@
                                             <span class="details btn btn-secondary btn-sm d-inline-block" tabindex="0" data-toggle="tooltip" title="Details" style="margin-right: 5px;"
                                                 routerLink="/appointment/details/{{item.id}}"> <div class="fa fa-eye"></div> </span>
                                             <span class="delete btn btn-danger btn-sm d-inline-block" tabindex="0" data-toggle="tooltip" title="Delete" style="margin-right: 7px;"
-                                                (click)="deleteAppointment(item.id)"
+                                            (click)="idSelected(item.id)" data-toggle="modal"
+                                            data-target="#modalAppointment"
                                                 > <div class="fa fa-trash-o"></div> </span>
                                         </div>
                                     </td>
@@ -56,6 +57,31 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modalAppointment" tabindex="-1" role="dialog" aria-labelledby="modalAppointmentTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAppointmentTitle"><div class="fa fa-exclamation-triangle" style="color: red;"></div> Delete Appointment </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure, you want to delete an Appointment? </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">
+                    <div class="fa fa-times"></div> Cancel
+                </button>
+                <button type="button" class="btn btn-danger" (click)="deleteAppointment()" data-dismiss="modal">
+                    <div class="fa fa-check"></div> Ok
+                </button>
             </div>
         </div>
     </div>

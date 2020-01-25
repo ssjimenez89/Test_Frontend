@@ -21,7 +21,7 @@ export class AppointmentTypeCreateComponent implements OnInit {
   }
 
   newAppointmentType(): void{
-    this.submitted = false;
+    this.submitted = false; 
     this.appointmentType = new AppointmentType();
   }
 

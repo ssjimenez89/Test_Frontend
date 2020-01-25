@@ -14,6 +14,7 @@ export class TrainingScheduleListComponent implements OnInit {
   name = 'TrainingSchedule';
   page = 1;
   pageSize = 5; 
+  id: number;
 
   constructor(private trainingscheduleService: TrainingscheduleService) { }
 
@@ -25,16 +26,18 @@ export class TrainingScheduleListComponent implements OnInit {
     this.trainingschedule = this.trainingscheduleService.getTrainingScheduleList();
   }
 
-  deleteTrainingSchedule(id: number) {
-    if (window.confirm('Ar you sure, you want to delete an Training Schedule')) {
-      this.trainingscheduleService.deleteTrainingSchedule(id)
+  idSelected(id: number){
+    this.id = id;
+  }
+
+  deleteTrainingSchedule() {   
+      this.trainingscheduleService.deleteTrainingSchedule(this.id)
         .subscribe(
           data => {
             console.log(data);
             this.reloadData();
           },
-          error => console.log(error));
-    }
+          error => console.log(error));    
   }
 
   detailsTrainingSchedule(id: number) {

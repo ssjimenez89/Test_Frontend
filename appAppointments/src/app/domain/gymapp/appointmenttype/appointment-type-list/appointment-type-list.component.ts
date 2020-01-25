@@ -14,7 +14,8 @@ export class AppointmentTypeListComponent implements OnInit {
   appointmentType: Observable<AppointmentType[]>;
   name = 'Angular';
   page = 1;
-  pageSize = 5; 
+  pageSize = 5;
+  id: number;
 
   constructor(private appointmenttypeService: AppointmenttypeService) { }
 
@@ -26,18 +27,20 @@ export class AppointmentTypeListComponent implements OnInit {
     this.appointmentType = this.appointmenttypeService.getAppointmentTypeList();
   }
 
+  idSelected(id: number){
+    this.id = id;
+  }
 
-  deleteAppointmentType(id: number) {
-    if (window.confirm('Ar you sure, you want to delete an Appointment Type')) {
 
-      this.appointmenttypeService.deleteAppointmentType(id)
+  deleteAppointmentType() {      
+      this.appointmenttypeService.deleteAppointmentType(this.id)
         .subscribe(
           data => {
             console.log(data);
             this.reloadData();
           },
           error => console.log(error));
-    }
+    
   }
 
   detailsAppointmentType(id: number) {
