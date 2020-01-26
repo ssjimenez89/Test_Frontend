@@ -14,7 +14,7 @@
             <div class="card-body">
 
                 <div [hidden]="submitted">
-                    <form (ngSubmit)="onSubmit(memberForm)" #memberForm="ngForm">
+                    <form #memberForm="ngForm">
 
                         <div class="container custom-container">
                             <div class="col-md-12">
@@ -81,7 +81,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button class="btn btn-success float-right" [disabled]="!memberForm.form.valid">
+                                    <button class="btn btn-success float-right" [disabled]="!memberForm.form.valid"
+                                    data-toggle="modal" data-target="#modalEditTrainingSchedule">
                                         <div class="fa fa-check"></div> Aceptar
                                     </button>
                                 </div>
@@ -90,6 +91,35 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modalEditTrainingSchedule" tabindex="-1" role="dialog"
+    aria-labelledby="modalEditTrainingScheduleTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditTrainingScheduleTitle">
+                    <div class="fa fa-exclamation-triangle" style="color: dodgerblue;"></div> Edit
+                    Training Schedule
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure, you want to edit a Training Schedule? </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    <div class="fa fa-times"></div> Cancel
+                </button>
+                <button type="button" class="btn btn-info" (click)="onSubmit()" data-dismiss="modal">
+                    <div class="fa fa-check"></div> Ok
+                </button>             
+                
             </div>
         </div>
     </div>

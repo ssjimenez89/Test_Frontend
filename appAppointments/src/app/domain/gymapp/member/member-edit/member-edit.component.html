@@ -14,7 +14,7 @@
             <div class="card-body">
 
                 <div [hidden]="submitted">
-                    <form (ngSubmit)="onSubmit(memberForm)" #memberForm="ngForm">
+                    <form #memberForm="ngForm">
                         
                         <div class="container custom-container">
                             <div class="col-md-12">
@@ -26,7 +26,7 @@
                                             placeholder="Name" name="name" #name="ngModel" minlength="5">
                                         <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
                                             <div *ngIf="name.errors?.required">
-                                                This field is required
+                                                This field is required 
                                             </div>
                                             <div *ngIf="name.errors?.minlength">
                                                 At least 5 characters
@@ -107,7 +107,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button class="btn btn-success float-right" [disabled]="!memberForm.form.valid">
+                                    <button class="btn btn-success float-right" [disabled]="!memberForm.form.valid"
+                                    data-toggle="modal" data-target="#modalEditMember">
                                         <div class="fa fa-check"></div> Aceptar
                                     </button>
                                 </div>
@@ -116,6 +117,35 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modalEditMember" tabindex="-1" role="dialog"
+    aria-labelledby="modalEditMemberTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditMemberTitle">
+                    <div class="fa fa-exclamation-triangle" style="color: dodgerblue;"></div> Edit
+                    Member
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure, you want to edit a Member? </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    <div class="fa fa-times"></div> Cancel
+                </button>
+                <button type="button" class="btn btn-info" (click)="onSubmit()" data-dismiss="modal">
+                    <div class="fa fa-check"></div> Ok
+                </button>             
+                
             </div>
         </div>
     </div>

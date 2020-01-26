@@ -34,12 +34,10 @@ export class CoachEditComponent implements OnInit {
     this.sexList = this.coachService.getSexList();
   }
 
-  CoachEditComponent() {
-    if (window.confirm('Ar you sure, you want to update an Coach')) {
+  CoachEditComponent() {   
       this.coachService.updateCoach(this.id, this.coachData).subscribe(data => {
         this.router.navigate(['coach/list']);
-      });
-    }
+      });    
   }
 
   onSubmit(){

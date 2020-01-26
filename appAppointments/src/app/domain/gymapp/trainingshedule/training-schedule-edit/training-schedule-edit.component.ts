@@ -42,11 +42,9 @@ export class TrainingScheduleEditComponent implements OnInit {
   }
 
   TrainingScheduleEditComponent() {
-    if (window.confirm('Ar you sure, you want to update an Training Schedule')) {
       this.trainingSchedulService.updateTrainingSchedule(this.id, this.trainingScheduleData.coach.id, this.trainingScheduleData).subscribe(data => {
         this.router.navigate(['trainingschedule/list']);
-      });
-    }
+      });    
   }
 
   onSubmit(){
